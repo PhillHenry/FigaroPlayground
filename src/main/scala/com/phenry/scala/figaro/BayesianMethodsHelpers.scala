@@ -1,8 +1,9 @@
 package com.phenry.scala.figaro
 
 import com.cra.figaro.algorithm.sampling.OneTimeProbQuerySampler
-import com.cra.figaro.language.{Inject, Element}
+import com.cra.figaro.language.{Element, Inject}
 import com.cra.figaro.library.atomic.discrete.AtomicUniform
+import com.phenry.scala.figaro.TestResources.testResourceFQN
 
 import scala.io.Source._
 
@@ -20,7 +21,7 @@ object BayesianMethodsHelpers {
   def inject[T](xs: Seq[Element[T]]): Element[List[T]] = Inject(xs: _*)
 
   def getData(): List[Int] = {
-    val bufferedSource  = fromFile(TestResources.testResourceFQN("BayesianMethodsForHackers/Chapter1_Introduction/data/txtdata.csv"))
+    val bufferedSource  = fromFile(testResourceFQN("BayesianMethodsForHackers/Chapter1_Introduction/data/txtdata.csv"))
     val lines           = bufferedSource.getLines().toList
     val data            = lines map { x =>
       val nMessages = java.lang.Double.valueOf(x).toInt
