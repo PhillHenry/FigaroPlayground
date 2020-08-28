@@ -13,8 +13,6 @@ object LetterGradeSmartDifficultMain {
 
   def main(args: Array[String]): Unit = {
     val exponential = Exponential(10)
-//    println(s"exponential = ${exponential.generateValue()}")
-    //val observation     = Poisson(Constant(10d))
     val observation     = Poisson(exponential)
     (1 to 10).foreach { i =>
       println(s"#$i: ${observation.generateValue()}")
@@ -45,10 +43,6 @@ object LetterGradeSmartDifficultMain {
     val ve = VariableElimination(defaultDifficulty)
     ve.start()
     println("Difficult? " + ve.probability(defaultDifficulty, (x: String) => x == Hard))
-
-
-    //    model.satDist.observe(BadSat)
-    //    chancesOf(Letter, letterDist) // 0.7121474782608695
 
     gradeDistributionWhen().observe(C)
     val ve2 = VariableElimination(defaultDifficulty)

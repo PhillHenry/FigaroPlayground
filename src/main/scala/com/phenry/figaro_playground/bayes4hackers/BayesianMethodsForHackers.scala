@@ -24,22 +24,23 @@ object BayesianMethodsForHackers {
     val poisson1: Element[Int]    = Poisson(lambda1)
     val poisson2: Element[Int]    = Poisson(lambda2)
 
-    val tau: Element[Int]         = Uniform(0 to n_count_data: _*)
+    val dayRange                  = 0 to (n_count_data - 1)
+    val tau: Element[Int]         = Uniform(dayRange: _*)
 
     def pDay(day: Int): Element[Int] = If (tau.map(_ > day), poisson1, poisson2)
 
-    val modelData: Seq[Element[Int]] = (1 to n_count_data).map(d => pDay(d))
+    val modelData: Seq[Element[Int]] = dayRange.map(d => pDay(d))
     modelData.zip(data).foreach { case(test, real) =>
       test.addConstraint(fitnessFnPowered(real, 4.75))
-//      test.addConstraint(fitnessFn(real))
-//      test.observe(real)
     }
 
     val model = Inject(modelData: _*)
   }
 
   def fitnessFn(real: Int): (Int) => Double = x => 1.0 / (abs(real - x) + 1)
-  def fitnessFnPowered(real: Int, power: Double): (Int) => Double = x => 1.0 / pow((abs(real - x) + 1), power)
+
+  def fitnessFnPowered(real: Int, power: Double): (Int) => Double
+    = x => 1.0 / pow((abs(real - x) + 1), power)
 
 
   /**
@@ -63,11 +64,12 @@ object BayesianMethodsForHackers {
     * nSamples = 40k, burnin = 10k, fitnessFnPowered(power = 4.875), value > day: (0.87425,45), (0.0899,43), (0.0249,38), (0.01095,39)
     */
   def main(args: Array[String]): Unit = {
-    val model = new Model
-    val nSamples = 40000
-    val mh = MetropolisHastings(numSamples = nSamples,
+    val model     = new Model
+    val nSamples  = 40000
+    val mh        = MetropolisHastings(
+      numSamples  = nSamples,
       ProposalScheme(model.tau, model.lambda1, model.lambda2),
-      burnIn = 10000,
+      burnIn      = 5000,
       model.tau)
 //    doComputation(mh, model.tau)
     mh.start()
@@ -75,7 +77,7 @@ object BayesianMethodsForHackers {
     println("Model Distribution:")
     val tauDistro = mh.computeDistribution(model.tau)
 
-    println(tauDistro.toSeq.sortBy(_._1).reverse.mkString(", "))
+    println(tauDistro.sortBy(_._1).reverse.mkString(", "))
   }
 
 
