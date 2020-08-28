@@ -1,4 +1,4 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.bayes4hackers
 
 import java.lang.Math.{pow, abs}
 
@@ -7,9 +7,9 @@ import com.cra.figaro.language.{Inject, Universe, Element, Chain}
 import com.cra.figaro.library.atomic.continuous.{Exponential, Beta}
 import com.cra.figaro.library.atomic.discrete.{Uniform, AtomicUniform, Poisson}
 import com.cra.figaro.library.compound.If
-import com.phenry.scala.figaro.BayesianMethodsHelpers._
+import BayesianMethodsHelpers._
 
-object BayesianMethodsForHackers2 {
+object BayesianMethodsForHackers {
 
   val data          = getData()
   val n_count_data  = data.length

@@ -1,9 +1,9 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.bayes4hackers
 
 import com.cra.figaro.algorithm.sampling.OneTimeProbQuerySampler
 import com.cra.figaro.language.{Element, Inject}
 import com.cra.figaro.library.atomic.discrete.AtomicUniform
-import com.phenry.scala.figaro.TestResources.testResourceFQN
+import com.phenry.figaro_playground.utils.TestResources.testResourceFQN
 
 import scala.io.Source._
 

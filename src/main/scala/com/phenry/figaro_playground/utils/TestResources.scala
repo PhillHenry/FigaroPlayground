@@ -1,4 +1,4 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.utils
 
 import java.io.File.separator
 

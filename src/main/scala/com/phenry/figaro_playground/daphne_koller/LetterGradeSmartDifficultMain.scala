@@ -1,12 +1,15 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.daphne_koller
 
 import com.cra.figaro.algorithm.factored.VariableElimination
 import com.cra.figaro.language._
 import com.cra.figaro.library.atomic.continuous.Exponential
 import com.cra.figaro.library.atomic.discrete.Poisson
-import com.cra.figaro.library.compound.{CPD2, CPD, CPD1}
+import com.cra.figaro.library.compound.{CPD, CPD1, CPD2}
 
-object MyFigaro {
+/**
+ * Example taken from Daphne Koller's "Graphical Models" course.
+ */
+object LetterGradeSmartDifficultMain {
 
   def main(args: Array[String]): Unit = {
     val exponential = Exponential(10)

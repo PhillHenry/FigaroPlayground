@@ -1,10 +1,10 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.bayes4hackers
 
 import org.scalatest.{Matchers, WordSpec}
 
-class BayesianMethodsForHackers2Spec extends WordSpec with Matchers {
+class BayesianMethodsForHackersSpec extends WordSpec with Matchers {
 
-  import BayesianMethodsForHackers2._
+  import BayesianMethodsForHackers._
 
   "Elements" should {
     "be the same on different calls" in {

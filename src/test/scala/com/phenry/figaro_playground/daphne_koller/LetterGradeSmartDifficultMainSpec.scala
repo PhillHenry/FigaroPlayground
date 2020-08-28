@@ -1,8 +1,8 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.daphne_koller
 
 import org.scalatest.{Matchers, WordSpec}
 
-class CourseraSpec extends WordSpec with Matchers {
+class LetterGradeSmartDifficultMainSpec extends WordSpec with Matchers {
 
 
   "probabilities" should {

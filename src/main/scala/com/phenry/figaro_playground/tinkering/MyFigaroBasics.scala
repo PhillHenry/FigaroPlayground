@@ -1,6 +1,6 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.tinkering
 
-import com.cra.figaro.language.{Constant, Chain, Element}
+import com.cra.figaro.language.{Chain, Constant, Element}
 import com.cra.figaro.library.atomic.discrete
 import com.cra.figaro.library.atomic.discrete.Uniform
 

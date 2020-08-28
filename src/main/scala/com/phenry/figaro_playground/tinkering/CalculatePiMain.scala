@@ -1,10 +1,9 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.tinkering
 
 import java.lang.Math.pow
 
-import com.cra.figaro.algorithm.factored.VariableElimination
-import com.cra.figaro.algorithm.sampling.{ProposalScheme, MetropolisHastings}
-import com.cra.figaro.language.{Constant, Chain, Apply}
+import com.cra.figaro.algorithm.sampling.{MetropolisHastings, ProposalScheme}
+import com.cra.figaro.language.{Apply, Chain, Constant}
 import com.cra.figaro.library.atomic.continuous.Uniform
 
 object CalculatePiMain {

@@ -1,8 +1,8 @@
-package com.phenry.scala.figaro
+package com.phenry.figaro_playground.daphne_koller
 
 import org.scalatest.{Matchers, WordSpec}
 
-class FigaroSpec extends WordSpec with Matchers {
+class ProbabilisticGraphicalModelsSpec extends WordSpec with Matchers {
 
   "Element having constraint added" should {
 
